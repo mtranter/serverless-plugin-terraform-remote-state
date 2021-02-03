@@ -1,0 +1,79 @@
+{
+  "version": 4,
+  "terraform_version": "0.13.6",
+  "serial": 103,
+  "lineage": "d3b43763-9dcc-94c0-2791-d67a0e0f3b58",
+  "outputs": {
+    "api_admin_resource": {
+      "value": {
+        "id": "dsa2ds2",
+        "parent_id": "gfsfsgfdsgf",
+        "path": "/admin",
+        "path_part": "admin",
+        "rest_api_id": "aaaaaaaaaa"
+      },
+      "type": [
+        "object",
+        {
+          "id": "string",
+          "parent_id": "string",
+          "path": "string",
+          "path_part": "string",
+          "rest_api_id": "string"
+        }
+      ]
+    },
+    "api_gateway": {
+      "value": {
+        "id": "aaaaaaaaaa",
+        "public_root_resource_id": "gfsfsgfdsgf"
+      },
+      "type": [
+        "object",
+        {
+          "id": "string",
+          "public_root_resource_id": "string"
+        }
+      ]
+    },
+    "api_test_resource": {
+      "value": {
+        "id": "1w267g",
+        "parent_id": "dsa2ds2",
+        "path": "/admin/test",
+        "path_part": "test",
+        "rest_api_id": "aaaaaaaaaa"
+      },
+      "type": [
+        "object",
+        {
+          "id": "string",
+          "parent_id": "string",
+          "path": "string",
+          "path_part": "string",
+          "rest_api_id": "string"
+        }
+      ]
+    },
+    "api_v1_resource": {
+      "value": {
+        "id": "123456",
+        "parent_id": "654231",
+        "path": "/api/v1",
+        "path_part": "v1",
+        "rest_api_id": "aaaaaaaaaa"
+      },
+      "type": [
+        "object",
+        {
+          "id": "string",
+          "parent_id": "string",
+          "path": "string",
+          "path_part": "string",
+          "rest_api_id": "string"
+        }
+      ]
+    }
+  },
+  "resources": []
+}
