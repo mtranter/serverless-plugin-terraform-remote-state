@@ -17,12 +17,6 @@ export const apply = (serverless: Serverless.Instance, options: Serverless.Optio
           .then(parse)
           .then(r => isRight(r) ? Promise.resolve(r.right) : Promise.reject(r.left))
           .then(r => ({ key: k, output: r }))))
-
-      outputs.forEach(o => {
-        //serverless.service.custom.terraformRemoteState[o.key].outputs = o.output
-        serverless.cli.log('fetched terraform remote state')
-        serverless.cli.log(`terraform remote state ${serverless.service.custom.terraformRemoteState[o.key].outputs}`)
-      })
       return outputs
     } else {
       return Promise.reject(`Bad config: ${JSON.stringify(serverless.service.custom.terraformRemoteState)}. Expected { bucket, key, region}`)
