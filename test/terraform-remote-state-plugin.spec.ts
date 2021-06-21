@@ -25,4 +25,3 @@ describe('apply', () => {
         expect(hasOutputs.outputs.api_admin_resource).toEqual(stateJson.outputs.api_admin_resource.value)
     })
 })
-

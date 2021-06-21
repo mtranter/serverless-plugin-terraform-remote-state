@@ -16,8 +16,8 @@ provider:
   name: aws
   runtime: nodejs12.x
   apiGateway:
-    restApiId: ${self:custom.terraformRemoteState.commonInfra.outputs.rest_api.id}
-    restApiRootResourceId: ${self:custom.terraformRemoteState.commonInfra.outputs.rest_api.root_resource_id}
+    restApiId: ${terraformRemoteState.commonInfra.outputs.rest_api.id}
+    restApiRootResourceId: ${terraformRemoteState.commonInfra.outputs.rest_api.root_resource_id}
 
 custom:
   terraformRemoteState:
@@ -35,10 +35,10 @@ custom:
         region: ap-southeast-2
 
 functions:
-  snsListener:  
+  snsListener:
     handler: src/sns_listener.handler
     events:
       - sns:
-          arn: ${self:custom.terraformRemoteState.myService.outputs.my_sns_topic.arn}
+          arn: ${terraformRemoteState.myService.outputs.my_sns_topic.arn}
 
 ```
