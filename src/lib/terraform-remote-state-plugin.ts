@@ -5,6 +5,8 @@ import { parse } from './state-parser'
 import { fetchers } from './fetchers'
 import * as get from 'lodash/get'
 
+const schemaKey = 'terraformRemoteState'
+
 export const apply = (serverless: Serverless.Instance, options: Serverless.Options, downloaders: typeof fetchers) => async () => {
   if (!serverless.service.custom.terraformRemoteState) {
     return Promise.resolve()
@@ -78,10 +80,9 @@ export class TerraformRemoteStatePlugin {
       'before:offline:start': hookHandler,
       'before:offline:start:init': hookHandler
     }
-    const foo = this;
-    const key = 'terraformRemoteState'
+    const self = this
     this.configurationVariablesSources = {
-       [key]: {
+       [schemaKey]: {
          async resolve({address, params, resolveConfigurationProperty, options}) {
           const data  = await hookHandler()
           const bar = (data || []).reduce((acc,{key,output})=>{
@@ -90,7 +91,7 @@ export class TerraformRemoteStatePlugin {
           },{})
 
 
-          foo.resolvedData = bar
+          self.resolvedData = bar
 
           const result = get(bar, address, null)
           return {
