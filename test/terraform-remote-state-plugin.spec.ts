@@ -19,9 +19,9 @@ describe('apply', () => {
                 }
             }
         }
-        await apply(testConfig as unknown as Serverless.Instance, null as Serverless.Options, { s3: () => () => Promise.resolve(JSON.stringify(stateJson)) })()
-        const hasOutputs: any = testConfig.service.custom.terraformRemoteState.someInfra
-        expect(hasOutputs.outputs.api_v1_resource).toEqual(stateJson.outputs.api_v1_resource.value)
-        expect(hasOutputs.outputs.api_admin_resource).toEqual(stateJson.outputs.api_admin_resource.value)
+        const downloader = { s3: () => () => Promise.resolve(JSON.stringify(stateJson)) }
+        const result = await apply(testConfig as unknown as Serverless.Instance, null as Serverless.Options, downloader)() || []
+
+        expect((result as any).someInfra?.outputs?.api_v1_resource).toEqual(stateJson.outputs.api_v1_resource.value)
     })
 })
