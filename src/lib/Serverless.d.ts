@@ -7,7 +7,7 @@ declare namespace Serverless {
     config: {
       servicePath: string
     }
-
+    configSchemaHandler: { defineCustomProperties: any }
     service: {
       provider: {
         name: string
